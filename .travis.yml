@@ -1,12 +1,10 @@
 language: python
 python:
-  - "2.7"
-  - "3.5"
-virtualenv:
-  system_site_packages: true
+  - "3.8"
 
 before_install:
   - pip install pycodestyle
+  - python -m pip install -r requirements.txt
 
 script:
   - pytest
