@@ -18,7 +18,7 @@ class FakeFilm:
 
 
 class TestFilms:
-    uuid = [ ]
+    uuid = []
 
     def test_get_films_with_db(self):
         client = app.test_client()
@@ -47,8 +47,8 @@ class TestFilms:
         }
         resp = client.post('/films', data=json.dumps(data), content_type='application/json')
         assert resp.status_code == http.HTTPStatus.CREATED
-        assert resp.json[ 'title' ] == 'Test Title'
-        self.uuid.append(resp.json[ 'uuid' ])
+        assert resp.json['title'] == 'Test Title'
+        self.uuid.append(resp.json['uuid'])
 
     def test_create_film_with_mock_db(self):
         with patch('src.db.session.add', autospec=True) as mock_session_add, \
@@ -68,7 +68,7 @@ class TestFilms:
 
     def test_update_film_with_db(self):
         client = app.test_client()
-        url = f'/films/{self.uuid[ 0 ]}'
+        url = f'/films/{self.uuid[0]}'
         data = {
             'title': 'Update Title',
             'distributed_by': 'update',
@@ -76,7 +76,7 @@ class TestFilms:
         }
         resp = client.put(url, data=json.dumps(data), content_type='application/json')
         assert resp.status_code == http.HTTPStatus.OK
-        assert resp.json[ 'title' ] == 'Update Title'
+        assert resp.json['title'] == 'Update Title'
 
     def test_update_film_with_mock_db(self):
         with patch('src.services.film_service.FilmService.fetch_film_by_uuid') as mocked_query, \

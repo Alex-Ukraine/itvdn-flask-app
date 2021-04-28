@@ -13,7 +13,7 @@ from src.services.film_service import FilmService
 class FilmListApi(Resource):
     film_schema = FilmSchema()
 
-    #@token_required
+    # @token_required
     def get(self, uuid=None):
         if not uuid:
             # selectinload instead joinedload

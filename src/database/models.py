@@ -35,7 +35,7 @@ class Film(db.Model):
         self.rating = rating
         self.uuid = str(uuid.uuid4())
         if not actors:
-            self.actors = [ ]
+            self.actors = []
         else:
             self.actors = actors
 

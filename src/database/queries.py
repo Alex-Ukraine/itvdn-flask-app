@@ -11,7 +11,7 @@ hp = db.session.query(models.Film).filter(
     models.Film.title == 'Harry Potter and Chamber of Secrets'
 ).first()
 hp1 = db.session.query(models.Film).filter_by(title='Harry Potter and Chamber of Secrets'
-).first()
+                                              ).first()
 
 hp2 = db.session.query(models.Film).filter(
     models.Film.title != 'Harry Potter and Chamber of Secrets',
