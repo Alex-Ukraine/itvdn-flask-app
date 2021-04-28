@@ -1,0 +1,14 @@
+language: python
+python:
+  - "2.7"
+  - "3.5"
+virtualenv:
+  system_site_packages: true
+
+before_install:
+  - pip install pycodestyle
+
+script:
+  - pytest
+  - coverage run --source="src/" -m pytest
+  - pycodestyle src/ --ignore=E722, E501, E402
