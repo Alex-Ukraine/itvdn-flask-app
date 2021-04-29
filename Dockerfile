@@ -11,5 +11,5 @@ COPY ./ .
 RUN chown -R wincity18:wincity18 ./
 USER wincity18
 
-EXPOSE 8000
-CMD gunicorn --bind 0.0.0.0:8000 wsgi:app
+EXPOSE 5000
+CMD gunicorn --bind 0.0.0.0:5000 wsgi:app
